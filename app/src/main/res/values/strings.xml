@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Swap</string>
+    <string name="nav_chat">Chat</string>
+    <string name="nav_swap">Swap</string>
+    <string name="nav_communities">Groups</string>
+</resources>
