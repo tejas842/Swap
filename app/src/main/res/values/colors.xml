@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand -->
+    <color name="colorPrimary">#6C63FF</color>
+    <color name="colorPrimaryDark">#5A52D5</color>
+    <color name="colorAccent">#FF6B6B</color>
+    <!-- Backgrounds -->
+    <color name="colorBackground">#F8F8FC</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <!-- Text -->
+    <color name="colorText">#1A1A2E</color>
+    <color name="colorTextSecondary">#888899</color>
+    <!-- Nav -->
+    <color name="colorNavSelected">#6C63FF</color>
+    <color name="colorNavUnselected">#AAAACC</color>
+    <!-- Bubbles -->
+    <color name="colorBubbleSent">#6C63FF</color>
+    <color name="colorBubbleReceived">#F0F0F8</color>
+</resources>
