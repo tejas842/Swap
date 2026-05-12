@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Node.js 20 ची वॉर्निंग घालवण्यासाठी खालील लाईन टाकली आहे
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true 
 
     steps:
       - name: Checkout code
@@ -18,26 +21,23 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      # Note: The manual Android SDK steps have been removed. 
-      # ubuntu-latest already has ANDROID_HOME configured out of the box!
-
+          
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.4'
 
+      # सर्वात महत्त्वाचे: Gradle ला रन करण्याची परमिशन देणे
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      # 'gradle' ऐवजी प्रोजेक्टचे स्वतःचे './gradlew' वापरणे
       - name: Build Debug APK
-        # If your project uses a Gradle wrapper, `./gradlew assembleDebug` is highly recommended over `gradle`
-        run: gradle assembleDebug --stacktrace
-
-      # Removed the "Find APK" step to prevent Exit Code 1
+        run: ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: SwapApp-debug
-          path: |
-            **/outputs/apk/**/*.apk
+          # APK शोधण्यासाठी अचूक पाथ (Path)
+          path: app/build/outputs/apk/debug/**/*.apk
           if-no-files-found: warn
           
