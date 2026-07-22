@@ -1,4 +1,4 @@
-`package com.swap.app.utils;
+package com.swap.app.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
