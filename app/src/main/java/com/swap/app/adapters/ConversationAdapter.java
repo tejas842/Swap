@@ -40,8 +40,8 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
         Conversation c = conversations.get(position);
         holder.tvName.setText(c.otherUserName != null ? c.otherUserName : "Unknown");
         holder.tvLastMessage.setText(c.lastMessage != null ? c.lastMessage : "");
-        if (c.avatarUrl != null && !c.avatarUrl.isEmpty()) {
-            Glide.with(context).load(c.avatarUrl).circleCrop().into(holder.ivAvatar);
+        if (c.otherUserAvatar != null && !c.otherUserAvatar.isEmpty()) {
+            Glide.with(context).load(c.otherUserAvatar).circleCrop().into(holder.ivAvatar);
         } else {
             holder.ivAvatar.setImageResource(R.drawable.ic_person_placeholder);
         }
@@ -60,4 +60,4 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
             tvLastMessage = v.findViewById(R.id.tvLastMessage);
         }
     }
-              }
+}
