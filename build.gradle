@@ -1,6 +1,11 @@
-// Root build.gradle
-plugins {
-    id 'com.android.application' apply false
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.2'
+    }
 }
 
 allprojects {
