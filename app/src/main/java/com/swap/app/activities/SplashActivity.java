@@ -1,4 +1,4 @@
-`package com.swap.app.activities;
+package com.swap.app.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
