@@ -22,12 +22,12 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Generate Gradle Wrapper (if missing)
+      - name: Ensure Gradle Wrapper
         run: |
-          chmod +x ./gradlew || true
+          mkdir -p gradle/wrapper
           if [ ! -f gradle/wrapper/gradle-wrapper.jar ]; then
-            echo "Generating Gradle Wrapper..."
-            ./gradlew wrapper --gradle-version 8.5 --quiet || echo "Using fallback"
+            echo "Downloading Gradle Wrapper JAR..."
+            curl -L -o gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/gradle/gradle/v8.5.0/gradle/wrapper/gradle-wrapper.jar
           fi
           chmod +x ./gradlew
 
